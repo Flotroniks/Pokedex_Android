@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_rounded_corners_search"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="8dp"
+        android:layout_gravity="center"
+        android:elevation="8dp"
+        android:outlineProvider="background"
+        android:shadowDx="0"
+        android:shadowDy="4"
+        android:shadowRadius="6"
+        >
+
+
+    <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/baseline_search_24"
+            android:id="@+id/imageButton"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            tools:ignore="ContentDescription"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+             />
+
+    <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:hint="Search"
+            android:id="@+id/search"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
