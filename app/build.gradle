@@ -1,10 +1,27 @@
+buildscript {
+    repositories {
+        google()
+    }
+    dependencies {
+
+        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:2.5.3")
+    }
+
+}
+
+
+
+
+
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'org.jetbrains.kotlin.plugin.serialization' version '1.7.20'
 
-}
 
+}
+apply plugin: "androidx.navigation.safeargs.kotlin"
+apply plugin: "kotlin-parcelize"
 android {
     namespace 'com.flotroniks.apipokemonkotlin'
     compileSdk 33

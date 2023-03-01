@@ -22,14 +22,15 @@ class MainActivity : AppCompatActivity(), OnPokemonClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Remove title bar
-        //supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
         // set notification bar to black
         setContentView(R.layout.activity_main)
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
         navController = navHostFragment?.findNavController() ?: throw Exception("Navigation host fragment is null")
         // Set up ActionBar
-        setupActionBarWithNavController(navController)
+        //setupActionBarWithNavController(navController)
+
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
@@ -54,14 +55,13 @@ class MainActivity : AppCompatActivity(), OnPokemonClickListener {
         //navController.navigate(R.id.action_pokemonListFragment_to_pokemonDetailFragment)
        //go to detail fragment and pass pokemon
         //make bundle to pass pokemon
-        val bundle = bundleOf("pokemon" to gson.toJson(pokemon))
+       val bundle = bundleOf("pokemonId" to pokemon.id)
         //remove pokemon list fragment
 
 
         navController.navigate(R.id.action_pokemonListFragment_to_pokemonDetailFragment,bundle)
 
 
-        //navController.navigate(R.id.action_pokemonListFragment_to_pokemonDetailFragment)
     }
 
 

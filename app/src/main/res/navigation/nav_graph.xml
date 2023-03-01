@@ -12,7 +12,12 @@
             >
         <action
                 android:id="@+id/action_pokemonDetailFragment_self"
-                app:destination="@id/pokemonDetailFragment" />
+                app:destination="@id/pokemonDetailFragment" >
+
+        </action>
+        <argument
+                android:name="pokemonPokedexId"
+                app:argType="integer" />
     </fragment>
 
     <fragment

@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.flotroniks.apipokemonkotlin.data.liveData.State
 import com.flotroniks.apipokemonkotlin.data.models.Pokemon
+import com.flotroniks.apipokemonkotlin.data.models.singleton.PokemonListSingleton
 import com.flotroniks.apipokemonkotlin.data.repository.dao.PokemonDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -13,7 +14,7 @@ import kotlinx.coroutines.withContext
 import java.util.*
 
 class PokemonListViewModel(private val repository: PokemonDao) : ViewModel() {
-
+    private val pokemonListSingleton = PokemonListSingleton.getInstance()
     private val _pokemonList = MutableLiveData<List<Pokemon>>()
     val pokemonList: LiveData<List<Pokemon>>
         get() = _pokemonList
@@ -30,17 +31,26 @@ class PokemonListViewModel(private val repository: PokemonDao) : ViewModel() {
     init {
         viewModelScope.launch {
             try {
-                // Set the state to loading
-                _state.value = State.LOADING
-                // Get the list of pokemon from the repository asynchronously
-                val pokemonList = withContext(Dispatchers.IO) {
-                    repository.getPokemonList()
+
+
+                if (pokemonListSingleton.getData().isEmpty()) {
+                    // Set the state to loading
+                    _state.value = State.LOADING
+                    // Get the list of pokemon from the repository asynchronously
+                    val pokemonList = withContext(Dispatchers.IO) {
+                        repository.getPokemonList()
+                    }
+                    for (pokemon in pokemonList) {
+                       println(pokemon.name)
+                    }
+                    pokemonListSingleton.addData(pokemonList)
+                    // Set the value of the live data
+                    _pokemonList.value = pokemonListSingleton.getData()
+                } else {
+                    _pokemonList.value = PokemonListSingleton.getInstance().getData()
                 }
-                _pokemonList.value = pokemonList
                 // Set the state to success
                 _state.value = State.SUCCESS
-
-
             } catch (e: Exception) {
                 e.printStackTrace()
                 // Set the state to error
@@ -50,10 +60,12 @@ class PokemonListViewModel(private val repository: PokemonDao) : ViewModel() {
         }
 
     }
+    fun getPokemonList(): List<Pokemon> {
+        return pokemonListSingleton.getData()
+    }
     fun searchPokemon(pokemonName: String) {
 
         //cherche un pokemon par son nom ddans la base de donnée locale si il n'est pas présent dans la liste de pokemon
-        //affiche un message d'erreur
         _pokemonSearched.value = _pokemonList.value!!.filter {
             it.name.lowercase(Locale.getDefault())
                 .startsWith(pokemonName.lowercase(Locale.getDefault()))

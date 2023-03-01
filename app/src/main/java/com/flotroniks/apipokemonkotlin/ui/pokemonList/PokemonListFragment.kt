@@ -117,7 +117,11 @@ class PokemonListFragment : Fragment(), OnPokemonClickListener {
         //hide the layout
         binding.pokemonList.visibility = View.GONE
         //go to pokemonDetailFragment
-       (activity as OnPokemonClickListener).onPokemonClick(pokemon)
+       /*(activity as OnPokemonClickListener).onPokemonClick(pokemon)*/
+        //go to pokemonDetailFragment
+        val direction = PokemonListFragmentDirections
+            .actionPokemonListFragmentToPokemonDetailFragment(pokemon.pokedexId!!)
+        findNavController().navigate(direction)
     }
 
 }
