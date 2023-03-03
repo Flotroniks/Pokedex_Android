@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/layoutPokemonDetail">
+        xmlns:tools="http://schemas.android.com/tools">
 
 
     <data>
+
         <import type="androidx.recyclerview.widget.LinearLayoutManager" />
+
         <variable
                 name="pokemonDetail"
                 type="com.flotroniks.apipokemonkotlin.data.models.Pokemon" />
 
 
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#CDCDCD">
-
-
+            android:background="#CDCDCD"
+            android:id="@+id/layout_pokemon_detail">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -32,8 +33,7 @@
                 android:outlineProvider="background"
                 android:shadowDx="0"
                 android:shadowDy="4"
-                android:shadowRadius="6"
-                >
+                android:shadowRadius="6">
 
             <LinearLayout
                     android:layout_width="wrap_content"
@@ -45,7 +45,8 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginBottom="8dp"
-                    app:layout_constraintBottom_toTopOf="@+id/linearLayout2">
+                    app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+                    tools:ignore="UseCompoundDrawables">
 
                 <ImageView
                         android:layout_width="50dp"
@@ -53,14 +54,32 @@
                         android:id="@+id/preEvolutionImage"
                         tools:src="@mipmap/ic_launcher"
                         tools:ignore="ContentDescription"
-                        android:src="@mipmap/ic_launcher"/>
+                        android:src="@mipmap/ic_launcher" />
 
-                <TextView
-                        tools:text="TextView"
-                        android:text="@{pokemonDetail.apiTypes[0].name}"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/preEvolutionName" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:id="@+id/evolutionlayout"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:id="@+id/EvolutionImage"
+                        tools:src="@mipmap/ic_launcher"
+                        tools:ignore="ContentDescription" />
+
+
             </LinearLayout>
 
 
@@ -76,7 +95,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     android:layout_marginTop="36dp"
-                    android:layout_marginBottom="24dp"/>
+                    android:layout_marginBottom="24dp" />
 
 
             <LinearLayout
@@ -262,7 +281,31 @@
                 </LinearLayout>
             </LinearLayout>
 
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/favoriteButton"
+                    android:src="@drawable/ic_heart_foreground_grey"
+                    tools:ignore="ContentDescription"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <include
+                layout="@layout/evolution_layout"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+
+                android:visibility="gone"
+                tools:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/evolutionChooserLayout"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imagePokemonDetail" />
 
 
         <ImageView
@@ -273,7 +316,7 @@
                 tools:ignore="ContentDescription,MissingConstraints"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:elevation="199dp"/>
+                android:elevation="50dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

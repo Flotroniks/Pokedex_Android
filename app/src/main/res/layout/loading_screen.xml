@@ -5,29 +5,29 @@
         android:layout_height="match_parent"
         android:background="@color/backgroundBlue">
 
-   <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           android:orientation="vertical"
-           >
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-       <include
-               layout="@layout/loading_screen_top"
-               android:layout_width="match_parent"
-               android:layout_height="match_parent"
-               android:visibility="visible"
-               android:id="@+id/loading_screenTop"
-               android:layout_weight="1"
-               android:layout_marginBottom="8dp"/>
-       <include
-               android:layout_marginTop="8dp"
-               layout="@layout/loading_screen_bottom"
-               android:layout_width="match_parent"
-               android:layout_height="match_parent"
-               android:visibility="visible"
-               android:id="@+id/loading_screenBottom"
-               android:layout_weight="1"/>
-   </LinearLayout>
+        <include
+                layout="@layout/loading_screen_top"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible"
+                android:id="@+id/loading_screenTop"
+                android:layout_weight="1"
+                android:layout_marginBottom="8dp" />
+
+        <include
+                android:layout_marginTop="8dp"
+                layout="@layout/loading_screen_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible"
+                android:id="@+id/loading_screenBottom"
+                android:layout_weight="1" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
+    <color name="purple_500">#BC1529</color>
+    <color name="purple_700">#BC1529</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
@@ -18,5 +18,23 @@
     <color name="purple">#800080</color>
     <color name="pink">#FFC0CB</color>
     <color name="pokedexDark">#272726</color>
+    <color name="colorNormal">#A8A878</color>
+    <color name="colorFire">#F08030</color>
+    <color name="colorWater">#6890F0</color>
+    <color name="colorElectric">#F8D030</color>
+    <color name="colorGrass">#78C850</color>
+    <color name="colorIce">#98D8D8</color>
+    <color name="colorFighting">#C03028</color>
+    <color name="colorPoison">#A040A0</color>
+    <color name="colorGround">#E0C068</color>
+    <color name="colorFlying">#A890F0</color>
+    <color name="colorPsychic">#F85888</color>
+    <color name="colorBug">#A8B820</color>
+    <color name="colorRock">#B8A038</color>
+    <color name="colorGhost">#705898</color>
+    <color name="colorDragon">#7038F8</color>
+    <color name="colorDark">#705848</color>
+    <color name="colorSteel">#B8B8D0</color>
+    <color name="colorFairy">#EE99AC</color>
 
 </resources>

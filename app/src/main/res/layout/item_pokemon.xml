@@ -4,9 +4,11 @@
         xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
                 name="pokemon"
                 type="com.flotroniks.apipokemonkotlin.data.models.Pokemon" />
+
         <variable
                 name="ImagePokemon"
                 type="String" />
@@ -16,10 +18,9 @@
     <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="16dp"
+
             android:layout_marginVertical="4dp"
             tools:ignore="UseCompoundDrawables"
-            android:orientation="vertical"
             android:background="@android:color/white"
             android:elevation="8dp"
             android:outlineProvider="background"
@@ -27,28 +28,38 @@
             android:shadowDy="4"
             android:shadowRadius="6">
 
-        <ImageView
-                android:layout_width="92dp"
-                android:layout_height="92dp"
-                android:src="@{ImagePokemon}"
-                android:id="@+id/imagePokemon"
-                tools:ignore="ContentDescription"
-                tools:src="@mipmap/ic_launcher"/>
-
-        <TextView
-                android:id="@+id/pokemon_name"
-                android:layout_width="match_parent"
+        <LinearLayout
+                android:id="@+id/pokemonItemLinearLayout"
+                android:padding="16dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:color="@android:color/holo_purple"
-                tools:text="Name"
-                android:text="@{pokemon.name}"
-                android:textAppearance="?attr/textAppearanceListItem"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
+                android:orientation="vertical"
+                android:background="?selectableItemBackground">
 
-                android:gravity="center"
-                android:layout_gravity="center_vertical"
-        />
+            <ImageView
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:src="@{ImagePokemon}"
+                    android:id="@+id/imagePokemon"
+                    tools:ignore="ContentDescription"
+                    tools:src="@mipmap/ic_launcher"
+                    android:transitionName="imagePokemon" />
+
+            <TextView
+                    android:id="@+id/pokemon_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:color="@android:color/holo_purple"
+                    tools:text="Name"
+                    android:text="@{pokemon.name}"
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+
+                    android:gravity="center"
+                    android:layout_gravity="center_vertical" />
+
+        </LinearLayout>
 
 
     </LinearLayout>

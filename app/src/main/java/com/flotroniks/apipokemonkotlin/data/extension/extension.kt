@@ -1,16 +1,18 @@
 package com.flotroniks.apipokemonkotlin.data.extension
 
-import android.os.Bundle
-import com.flotroniks.apipokemonkotlin.data.models.Pokemon
-import com.google.gson.Gson
+import java.text.Normalizer
+import java.util.*
 
-val gson = Gson()
-fun Bundle.putPokemon(key: String, pokemon: Pokemon) {
-     //ajout du json dans le bundle
-    this.putString(key, gson.toJson(pokemon).toString())
+
+private val REGEX_UNACCENT = "\\p{InCombiningDiacriticalMarks}+".toRegex()
+
+// Remove accents from a string
+fun CharSequence.unaccent() : String {
+    val temp = Normalizer.normalize(this, Normalizer.Form.NFD)
+    return REGEX_UNACCENT.replace(temp, "")
 }
 
-fun Bundle.getPokemon(key: String): Pokemon? {
-    //récupération du json dans le bundle
-    return gson.fromJson(this.getString(key), Pokemon::class.java)
+fun CharSequence.normalize() : String {
+    return this.unaccent().lowercase(Locale.ROOT)
 }
+

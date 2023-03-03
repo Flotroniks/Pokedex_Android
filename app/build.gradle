@@ -10,9 +10,6 @@ buildscript {
 }
 
 
-
-
-
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
@@ -51,7 +48,7 @@ android {
     }
     buildFeatures {
         viewBinding true
-        dataBinding  true
+        dataBinding true
     }
 }
 
@@ -78,10 +75,6 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:2.4.1"
     //noinspection GradleDependency
     implementation "androidx.navigation:navigation-ui-ktx:2.4.1"
-
-
-
-
 
 
 }

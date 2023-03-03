@@ -1,4 +1,4 @@
-package com.flotroniks.apipokemonkotlin.data.liveData
+package com.flotroniks.apipokemonkotlin.data.livedata
 
 enum class State {
     LOADING,
